@@ -1,0 +1,11 @@
+<h2>Import users</h2>
+
+<%= form_tag(import_users_group_path, :multipart => true) do %>
+  <fieldset class="box">
+    <legend><%= l(:label_select_file_to_import) %> (CSV)</legend>
+    <p>
+      <%= file_field_tag 'file' %>
+    </p>
+  </fieldset>
+  <p><%= submit_tag l(:button_import).html_safe, :name => nil %></p>
+<% end %>
