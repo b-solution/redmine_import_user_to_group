@@ -17,6 +17,7 @@ class ImportUsersController < ApplicationController
     @import.user = User.current
     @import.original_file = params[:file]
     @import.set_default_settings
+    @import.file = params[:file]
     @import.extname = File.extname( params[:file].original_filename) if params[:file]
     @import.call(@group)
     flash[:notice] = "#{@import.users_saved.count} users imported. #{@import.users_failed.count} users do not exist: #{@import.users_failed.join('<br/>')}".html_safe
