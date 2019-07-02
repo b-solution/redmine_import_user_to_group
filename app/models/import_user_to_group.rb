@@ -5,7 +5,7 @@ class ImportUserToGroup < Import
     @users_saved = []
     @users_failed = []
     read_items do |row, i|
-      user = User.where('LOWER(firstname) = ? ', row[0].to_s.downcase).first
+      user = User.where('LOWER(login) = ? ', row[0].to_s.downcase).first
       if user
         unless user.groups.include?(group)
           user.groups << group

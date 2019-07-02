@@ -13,7 +13,6 @@ class ImportUsersController < ApplicationController
   private
 
   def import_data
-    @import.call(@group)
     @import.user = User.current
     @import.original_file = params[:file]
     @import.set_default_settings
