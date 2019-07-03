@@ -17,6 +17,14 @@ class ImportUserToGroup < Import
     end
   end
 
+  def read_items
+    i = 0
+    read_rows do |row|
+      i+= 1
+      yield row, i if block_given?
+    end
+  end
+
   def is_csv?
     @extname == '.csv'
   end
